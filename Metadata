@@ -1,0 +1,56 @@
+Contract type:
+
+Other
+Contract name:
+Pizza Delivery Accountability
+Contract description:
+This contract is used for pizza delivery accountability, allowing the "buyer" to report to the "seller" that their pizza arrived late and be appropriately refunded a specified amount of Lovelace depending on how late the order was. This contract format could in theory apply to delivery services aside from pizza, this is just the example we chose.
+Role descriptions
+Role "buyer":
+buyer
+-
+Role "seller":
+seller
+-
+Choice descriptions
+Choice "10 min late":
+Delivered after 36 minutes, before 40 minutes
+-
+Choice "15 min late":
+Delivered after 41 minutes, before 45 minutes
+-
+Choice "20 min late":
+Delivered after 46 minutes, before 50 minutes
+-
+Choice "30 min late or more":
+Delivered after 61 minutes
+-
+Choice "5 min late":
+Delivered after 31 minutes, before 35 minutes
+-
+Choice "On Time":
+Delivered within 30 minutes
+-
+Slot parameter descriptions
+Slot parameter "Discounted Transaction Deadline":
+Deadline for charging discounted services for late service.
+-
+Slot parameter "Full Price Transaction Deadline":
+Deadline for full price of services.
+-
+Value parameter descriptions
+Value parameter "10%":
+Amount equal to a 1/10th of "Price"
+-
+Value parameter "20%":
+Amount equal to a 1/5th of "Price"
+-
+Value parameter "5%":
+Amount equal to a 1/20th of "Price"
+-
+Value parameter "50%":
+Amount equal to half of "Price"
+-
+Value parameter "Price":
+Full Price of Goods & Services (tax included) converted in Lovelace.
+-
