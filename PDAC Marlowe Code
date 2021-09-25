@@ -1,0 +1,93 @@
+When
+    [Case
+        (Deposit
+            (Role "seller")
+            (Role "buyer")
+            (Token "" "")
+            (ConstantParam "Price")
+        )
+        (When
+            [Case
+                (Choice
+                    (ChoiceId
+                        "On Time"
+                        (Role "buyer")
+                    )
+                    [Bound 0 30]
+                )
+                Close , Case
+                (Choice
+                    (ChoiceId
+                        "5 min late"
+                        (Role "buyer")
+                    )
+                    [Bound 31 35]
+                )
+                (Pay
+                    (Role "seller")
+                    (Party (Role "buyer"))
+                    (Token "" "")
+                    (ConstantParam "5%")
+                    Close 
+                ), Case
+                (Choice
+                    (ChoiceId
+                        "10 min late"
+                        (Role "buyer")
+                    )
+                    [Bound 36 40]
+                )
+                (Pay
+                    (Role "seller")
+                    (Party (Role "buyer"))
+                    (Token "" "")
+                    (ConstantParam "10%")
+                    Close 
+                ), Case
+                (Choice
+                    (ChoiceId
+                        "15 min late"
+                        (Role "buyer")
+                    )
+                    [Bound 41 45]
+                )
+                (Pay
+                    (Role "seller")
+                    (Party (Role "buyer"))
+                    (Token "" "")
+                    (ConstantParam "20%")
+                    Close 
+                ), Case
+                (Choice
+                    (ChoiceId
+                        "20 min late"
+                        (Role "buyer")
+                    )
+                    [Bound 46 60]
+                )
+                (Pay
+                    (Role "seller")
+                    (Party (Role "buyer"))
+                    (Token "" "")
+                    (ConstantParam "50%")
+                    Close 
+                ), Case
+                (Choice
+                    (ChoiceId
+                        "30 min late or more"
+                        (Role "buyer")
+                    )
+                    [Bound 61 9999]
+                )
+                (Pay
+                    (Role "seller")
+                    (Party (Role "buyer"))
+                    (Token "" "")
+                    (ConstantParam "Price")
+                    Close 
+                )]
+            (SlotParam "Discounted Transaction Deadline")
+            Close 
+        )]
+    (SlotParam "Full Price Transaction Deadline")
+    Close 
